@@ -114,12 +114,17 @@ body {
     border-radius: 3%;
     border: none;
     background-color: #82c1d7;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .keys.active {
+    position: relative;
     color: white;
     background-color: gray;
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.07);
+    bottom: -6px;
+    right: -6px;
+    transition: 0s;
 }
 
 .altContent {
