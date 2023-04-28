@@ -30,20 +30,76 @@ body {
 
 .keyboard__wrapper {
     display: flex;
-    flex-direction: row;
-    width: 90%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 900px;
     height: 100%;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: #5d5454;
+    background-color: #8bc4d9;
     padding-top: 25px;
     padding-bottom: 25px;
     justify-content: center;
+    row-gap: 5px;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.firstRowWrapper,
+.secondRowWrapper,
+.thirdRowWrapper,
+.fourRowWrapper,
+.fiftyRowWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 19%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secondRowWrapper .keys,
+.thirdRowWrapper .keys,
+.fourRowWrapper .keys,
+.fiftyRowWrapper .keys {
+    padding-left: 0;
 }
 
 #backspace {
     width: 120px;
+}
+
+#tab {
+    width: 90px;
+}
+
+#caps-lock {
+    width: 110px;
+}
+
+#enter {
+    width: 130px;
+}
+
+#l-shift,
+#l-ctrl {
+    width: 130px;
+}
+
+#r-shift {
+    width: 100px;
+}
+
+#space {
+    width: 450px;
+}
+
+#r-alt {
+    flex-wrap: nowrap;
 }
 
 .keys {
@@ -52,9 +108,18 @@ body {
     height: 50px;
     align-items: center;
     justify-content: center;
-    margin: 4px;
     overflow: hidden;
     padding-left: 5px;
+    box-shadow: 6px 6px rgba(0, 0, 0, 0.07);
+    border-radius: 3%;
+    border: none;
+    background-color: #82c1d7;
+    transition: 0.2s;
+}
+
+.keys.active {
+    color: white;
+    background-color: gray;
 }
 
 .altContent {
@@ -66,3 +131,4 @@ body {
     font-weight: 300;
     text-align: right;
 }
+
