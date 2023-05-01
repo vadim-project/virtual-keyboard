@@ -5,6 +5,7 @@ document.body.append(container);
 const input = document.createElement('textarea');
 input.classList = 'text-area';
 input.type = 'text';
+input.placeholder = "Ctrl + Alt for switch language";
 container.append(input);
 
 const keyBoardWrapper = document.createElement('div');
@@ -347,10 +348,10 @@ class Keyboard {
         }
         keys[57].id = 'r-alt';
         keys[57].onclick = (event) => {
-
             event.target.classList.toggle('active');
         }
         keys[58].id = 'int-backslash';
+
         keys[59].id = 'r-ctrl';
         keys[59].onclick = (event) => {
             event.target.classList.toggle('active');
@@ -370,6 +371,8 @@ window.addEventListener('keydown', (event) => {
     document.querySelector(".text-area").focus();
     keys = document.querySelectorAll(".keys");
     let key = Array.from(keys).filter(key => key.textContent.replaceAll(' ', '').toUpperCase() === event.key.replaceAll(' ', '').toUpperCase())[0];
+    console.log(event.key);
+    console.log(event.code);
     switch (event.key) {
         case "Shift":
             if (event.code === 'ShiftLeft') {
@@ -413,11 +416,12 @@ window.addEventListener('keydown', (event) => {
         case "\\":
             if (event.code === "Backslash") {
                 const backslash = document.getElementById('backslash');
-                backslash.click();
+                backslash.classList.add('active');
+
             }
             else {
                 const intBackslash = document.getElementById('int-backslash');
-                intBackslash.click();
+                intBackslash.classList.add('active');
             }
             break;
         case 'CapsLock':
@@ -476,11 +480,11 @@ window.addEventListener('keyup', (event) => {
         case "\\":
             if (event.code === "Backslash") {
                 const backslash = document.getElementById('backslash');
-                backslash.click();
+                backslash.classList.remove('active');
             }
             else {
                 const intBackslash = document.getElementById('int-backslash');
-                intBackslash.click();
+                intBackslash.classList.remove('active');
             }
             break;
         case 'CapsLock':
