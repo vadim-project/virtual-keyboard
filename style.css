@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-style: Arial;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(241 158 0 / 13%);
+    flex-direction: column;
+}
+
+.text-area {
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+
+.keyboard__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 900px;
+    height: 100%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #8bc4d9;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    justify-content: center;
+    row-gap: 5px;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.firstRowWrapper,
+.secondRowWrapper,
+.thirdRowWrapper,
+.fourRowWrapper,
+.fiftyRowWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 19%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secondRowWrapper .keys,
+.thirdRowWrapper .keys,
+.fourRowWrapper .keys,
+.fiftyRowWrapper .keys {
+    padding-left: 0;
+}
+
+#backspace {
+    width: 120px;
+}
+
+#tab {
+    width: 90px;
+}
+
+#caps-lock {
+    width: 110px;
+}
+
+#enter {
+    width: 130px;
+}
+
+#l-shift,
+#l-ctrl {
+    width: 130px;
+}
+
+#r-shift {
+    width: 100px;
+}
+
+#space {
+    width: 450px;
+}
+
+#r-alt {
+    flex-wrap: nowrap;
+}
+
+.keys {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-left: 5px;
+    box-shadow: 6px 6px rgba(0, 0, 0, 0.07);
+    border-radius: 3%;
+    border: none;
+    background-color: #82c1d7;
+    transition: 0.3s;
+}
+
+.keys.active, .keys:active {
+    position: relative;
+    color: white;
+    background-color: gray;
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.07);
+    bottom: -6px;
+    right: -6px;
+    transition: 0s;
+}
+
+.altContent {
+    position: relative;
+    top: -15px;
+    left: 6px;
+    float: right;
+    font-size: 10px;
+    font-weight: 300;
+    text-align: right;
+}
+
