@@ -5,7 +5,7 @@ document.body.append(container);
 const input = document.createElement('textarea');
 input.classList = 'text-area';
 input.type = 'text';
-input.placeholder = "Ctrl + Alt for switch language";
+input.placeholder = "Ctrl + Alt для смены языка. Для корректной работы клавиатуры язык в системе и в приложении должен совпадать.";
 container.append(input);
 
 const keyBoardWrapper = document.createElement('div');
@@ -368,129 +368,139 @@ window.addEventListener('load', () => {
 
 //Events on press on physic keyboard
 window.addEventListener('keydown', (event) => {
-    document.querySelector(".text-area").focus();
-    keys = document.querySelectorAll(".keys");
-    let key = Array.from(keys).filter(key => key.textContent.replaceAll(' ', '').toUpperCase() === event.key.replaceAll(' ', '').toUpperCase())[0];
-    console.log(event.key);
-    console.log(event.code);
-    switch (event.key) {
-        case "Shift":
-            if (event.code === 'ShiftLeft') {
-                const leftShift = document.getElementById('l-shift');
-                leftShift.click();
-            }
-            else {
-                const rightShift = document.getElementById('r-shift');
-                rightShift.click();
-            }
-            break;
-        case "Control":
-            if (event.code === 'ControlLeft') {
-                const leftControl = document.getElementById('l-ctrl');
-                leftControl.click();
-            }
-            else {
-                const rightControl = document.getElementById('r-ctrl');
-                rightControl.click();
-            }
-            break;
-        case "Meta":
-            const meta = document.getElementById('win');
-            meta.click();
-            break;
-        case "Alt":
-            if (event.code === "AltLeft") {
-                const leftAlt = document.getElementById('l-alt');
-                leftAlt.click();
-            }
-            else {
-                const rightAlt = document.getElementById('r-alt');
-                rightAlt.click();
-            }
-            break;
-        case " ":
-            const space = document.getElementById('space');
-            space.classList.add('active');
-            space.click();
-            break;
-        case "\\":
-            if (event.code === "Backslash") {
-                const backslash = document.getElementById('backslash');
-                backslash.classList.add('active');
+    try {
+        document.querySelector(".text-area").focus();
+        keys = document.querySelectorAll(".keys");
+        let key = Array.from(keys).filter(key => key.textContent.replaceAll(' ', '').toUpperCase() === event.key.replaceAll(' ', '').toUpperCase())[0];
+        console.log(event.key);
+        console.log(event.code);
+        switch (event.key) {
+            case "Shift":
+                if (event.code === 'ShiftLeft') {
+                    const leftShift = document.getElementById('l-shift');
+                    leftShift.click();
+                }
+                else {
+                    const rightShift = document.getElementById('r-shift');
+                    rightShift.click();
+                }
+                break;
+            case "Control":
+                if (event.code === 'ControlLeft') {
+                    const leftControl = document.getElementById('l-ctrl');
+                    leftControl.click();
+                }
+                else {
+                    const rightControl = document.getElementById('r-ctrl');
+                    rightControl.click();
+                }
+                break;
+            case "Meta":
+                const meta = document.getElementById('win');
+                meta.click();
+                break;
+            case "Alt":
+                if (event.code === "AltLeft") {
+                    const leftAlt = document.getElementById('l-alt');
+                    leftAlt.click();
+                }
+                else {
+                    const rightAlt = document.getElementById('r-alt');
+                    rightAlt.click();
+                }
+                break;
+            case " ":
+                const space = document.getElementById('space');
+                space.classList.add('active');
+                space.click();
+                break;
+            case "\\":
+                if (event.code === "Backslash") {
+                    const backslash = document.getElementById('backslash');
+                    backslash.classList.add('active');
 
-            }
-            else {
-                const intBackslash = document.getElementById('int-backslash');
-                intBackslash.classList.add('active');
-            }
-            break;
-        case 'CapsLock':
-            const caps = document.getElementById('caps-lock');
-            caps.click();
-            break;
-        default:
-            key.classList.add('active');
-            break;
+                }
+                else {
+                    const intBackslash = document.getElementById('int-backslash');
+                    intBackslash.classList.add('active');
+                }
+                break;
+            case 'CapsLock':
+                const caps = document.getElementById('caps-lock');
+                caps.click();
+                break;
+            default:
+                key.classList.add('active');
+                break;
+        }
+    }
+    catch {
+
     }
 })
 
 window.addEventListener('keyup', (event) => {
-    keys = document.querySelectorAll(".keys");
-    let key = Array.from(keys).filter(key => key.textContent.replaceAll(' ', '').toUpperCase() === event.key.replaceAll(' ', '').toUpperCase())[0];
-    switch (event.key) {
-        case "Shift":
-            if (event.code === 'ShiftLeft') {
-                const leftShift = document.getElementById('l-shift');
-                leftShift.click();
-            }
-            else {
-                const rightShift = document.getElementById('r-shift');
-                rightShift.click();
-            }
-            break;
-        case "Control":
-            if (event.code === 'ControlLeft') {
-                const leftControl = document.getElementById('l-ctrl');
-                leftControl.click();
-            }
-            else {
-                const rightControl = document.getElementById('r-ctrl');
-                rightControl.click();
-            }
-            break;
-        case "Meta":
-            const meta = document.getElementById('win');
-            meta.classList.click();
-            break;
-        case "Alt":
-            if (event.code === "AltLeft") {
-                const leftAlt = document.getElementById('l-alt');
-                leftAlt.click();
-            }
-            else {
-                const rightAlt = document.getElementById('r-alt');
-                rightAlt.click();
-            }
-            break;
-        case " ":
-            const space = document.getElementById('space');
-            space.classList.remove('active');
-            space.click();
-            break;
-        case "\\":
-            if (event.code === "Backslash") {
-                const backslash = document.getElementById('backslash');
-                backslash.classList.remove('active');
-            }
-            else {
-                const intBackslash = document.getElementById('int-backslash');
-                intBackslash.classList.remove('active');
-            }
-            break;
-        case 'CapsLock':
-            break;
-        default:
-            key.classList.remove('active');
-            break;
+    try {
+        keys = document.querySelectorAll(".keys");
+        let key = Array.from(keys).filter(key => key.textContent.replaceAll(' ', '').toUpperCase() === event.key.replaceAll(' ', '').toUpperCase())[0];
+        switch (event.key) {
+            case "Shift":
+                if (event.code === 'ShiftLeft') {
+                    const leftShift = document.getElementById('l-shift');
+                    leftShift.click();
+                }
+                else {
+                    const rightShift = document.getElementById('r-shift');
+                    rightShift.click();
+                }
+                break;
+            case "Control":
+                if (event.code === 'ControlLeft') {
+                    const leftControl = document.getElementById('l-ctrl');
+                    leftControl.click();
+                }
+                else {
+                    const rightControl = document.getElementById('r-ctrl');
+                    rightControl.click();
+                }
+                break;
+            case "Meta":
+                const meta = document.getElementById('win');
+                meta.classList.click();
+                break;
+            case "Alt":
+                if (event.code === "AltLeft") {
+                    const leftAlt = document.getElementById('l-alt');
+                    leftAlt.click();
+                }
+                else {
+                    const rightAlt = document.getElementById('r-alt');
+                    rightAlt.click();
+                }
+                break;
+            case " ":
+                const space = document.getElementById('space');
+                space.classList.remove('active');
+                space.click();
+                break;
+            case "\\":
+                if (event.code === "Backslash") {
+                    const backslash = document.getElementById('backslash');
+                    backslash.classList.remove('active');
+                }
+                else {
+                    const intBackslash = document.getElementById('int-backslash');
+                    intBackslash.classList.remove('active');
+                }
+                break;
+            case 'CapsLock':
+                break;
+            default:
+                key.classList.remove('active');
+                break;
+        }
+    }
+    catch {
+
     }
 })
